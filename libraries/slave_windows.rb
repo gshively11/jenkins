@@ -51,6 +51,8 @@ class Chef
     attribute :pre_run_cmds,
               kind_of: Array,
               default: []
+    attribute :jnlp_credentials,
+              kind_of: String
   end
 end
 
@@ -208,7 +210,8 @@ class Chef
         java_bin:      java,
         slave_jar:     slave_jar,
         jnlp_url:      jnlp_url,
-        jnlp_secret:   jnlp_secret
+        jnlp_secret:   jnlp_secret,
+        jnlp_credentials: new_resource.jnlp_credentials
       )
       @slave_bat_resource
     end
